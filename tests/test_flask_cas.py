@@ -13,7 +13,6 @@ class test_flask_cas(unittest.TestCase):
         self.app.testing = True
 
         self.app.config['CAS_SERVER'] = 'http://cas.server.com'
-        self.app.config['CAS_AFTER_LOGIN'] = 'root'
 
         with self.app.test_client() as client:
             response = client.get('/login/')
@@ -30,7 +29,6 @@ class test_flask_cas(unittest.TestCase):
         self.app.testing = True
 
         self.app.config['CAS_SERVER'] = 'http://cas.server.com'
-        self.app.config['CAS_AFTER_LOGIN'] = 'root'
 
         with self.app.test_client() as client:
             response = client.get('/cas/login/')
@@ -62,7 +60,6 @@ class test_flask_cas(unittest.TestCase):
         self.app.testing = True
 
         self.app.config['CAS_SERVER'] = 'http://cas.server.com'
-        self.app.config['CAS_AFTER_LOGIN'] = 'root'
 
         with self.app.test_client() as client:
             response = client.get('/login/')
@@ -80,7 +77,6 @@ class test_flask_cas(unittest.TestCase):
         self.app.testing = True
 
         self.app.config['CAS_SERVER'] = 'http://cas.server.com'
-        self.app.config['CAS_AFTER_LOGIN'] = 'root'
 
         with self.app.test_client() as client:
             response = client.get('/cas/login/')

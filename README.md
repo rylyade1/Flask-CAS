@@ -116,8 +116,7 @@ def foo():
 
 |Key             | Description                              | Example              |
 |----------------|------------------------------------------|----------------------|
-|CAS_SERVER      | URL of CAS                               | 'http://sso.pdx.edu' |  
-|CAS_AFTER_LOGIN | callback endpoint after successful login | '/' or hard URL 'https://localhost:5000'               |
+|CAS_SERVER      | URL of CAS                               | 'http://sso.pdx.edu' |
 
 #### Optional Configs ####
 
@@ -130,6 +129,7 @@ def foo():
 |CAS_LOGOUT_ROUTE           | '/cas/logout'         |
 |CAS_VALIDATE_ROUTE         | '/cas/serviceValidate'|
 |CAS_AFTER_LOGOUT           | None                  |
+|CAS_AFTER_LOGIN            | None -> redirects to '/'. Can be relative path or hard URL|
 
 ## Example ##
 

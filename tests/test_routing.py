@@ -29,7 +29,7 @@ class test_routing(unittest.TestCase):
         self.app.config['CAS_TOKEN_SESSION_KEY'] = '_CAS_TOKEN'
         self.app.config['CAS_USERNAME_SESSION_KEY'] = 'CAS_USERNAME'
         self.app.config['CAS_ATTRIBUTES_SESSION_KEY'] = 'CAS_ATTRIBUTES'
-        self.app.config['CAS_AFTER_LOGIN'] = 'root'
+        self.app.config['CAS_AFTER_LOGIN'] = 'http://localhost/'
         self.app.config['CAS_LOGIN_ROUTE'] = '/cas'
         self.app.config['CAS_LOGOUT_ROUTE'] = '/cas/logout'
         self.app.config['CAS_VALIDATE_ROUTE'] = '/cas/serviceValidate'
@@ -44,7 +44,8 @@ class test_routing(unittest.TestCase):
             self.assertEqual(response.status_code, 302)
             self.assertEqual(
                 response.headers['Location'],
-                'http://cas.server.com/cas?service=http%3A%2F%2Flocalhost%2Flogin%2F')
+                'http://cas.server.com/cas?service=http%3A%2F%2Flocalhost%2Flogin%2F%3F'
+                'origin%3Dhttp%253A%252F%252Flocalhost%252F')
 
     @mock.patch.object(routing, 'urlopen',
                        return_value=io.BytesIO(b'\n\n'))
@@ -114,7 +115,8 @@ class test_routing(unittest.TestCase):
             self.assertEqual(response.status_code, 302)
             self.assertEqual(
                 response.headers['Location'],
-                'http://cas.server.com/cas?service=http%3A%2F%2Flocalhost%2Flogin%2F')
+                'http://cas.server.com/cas?service=http%3A%2F%2Flocalhost%2Flogin%2F%3F'
+                'origin%3Dhttp%253A%252F%252Flocalhost%252F')
 
     def test_logout(self):
         with self.app.test_client() as client:
