@@ -117,7 +117,7 @@ def foo():
 |Key             | Description                              | Example              |
 |----------------|------------------------------------------|----------------------|
 |CAS_SERVER      | URL of CAS                               | 'http://sso.pdx.edu' |  
-|CAS_AFTER_LOGIN | Endpoint to go to after successful login | 'root'               |
+|CAS_AFTER_LOGIN | callback endpoint after successful login | '/' or hard URL 'https://localhost:5000'               |
 
 #### Optional Configs ####
 
@@ -142,7 +142,7 @@ from flask_cas import login_required
 app = Flask(__name__)
 cas = CAS(app, '/cas')
 app.config['CAS_SERVER'] = 'https://sso.pdx.edu' 
-app.config['CAS_AFTER_LOGIN'] = 'route_root'
+app.config['CAS_AFTER_LOGIN'] = '/'
 
 @app.route('/')
 @login_required
